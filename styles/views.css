@@ -1,10 +1,27 @@
+@font-face {
+  font-family: "Satoshi";
+  src: url("../fonts/Satoshi-Variable.ttf") format("truetype-variations"),
+       url("../fonts/Satoshi-Variable.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("../fonts/Satoshi-VariableItalic.ttf") format("truetype-variations"),
+       url("../fonts/Satoshi-VariableItalic.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
 
       body {
         background: white;
         color: white;
-        font-family: "Raleway", Arial, sans-serif;
+        font-family: "Satoshi", "Raleway", Arial, sans-serif;
         margin: 0;
-        padding:1rem  5rem;
+        padding:1rem  0rem 0rem;
         font-optical-sizing: auto;
         font-weight: 400;
         font-style: normal;
@@ -16,7 +33,7 @@
       .portfolio-item-title,
       .portfolio-item-desc {
         color: black;
-        font-family: "Raleway", Arial, sans-serif;
+        font-family: "Satoshi", "Raleway", Arial, sans-serif;
       }
       .portfolio-header {
         text-align: center;
@@ -98,7 +115,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Raleway", Arial, sans-serif;
+  font-family: "Satoshi", "Raleway", Arial, sans-serif;
   font-size: 1rem;
   font-weight: 600;
   opacity: 0;
@@ -139,7 +156,7 @@
 .next-project-link {
   margin-bottom: 1rem;
   display: inline-block;
-  font-family: "Raleway", Arial, sans-serif;
+  font-family: "Satoshi", "Raleway", Arial, sans-serif;
      font-size: 0.9rem;
   color: gray;
   background: #232323;
@@ -231,7 +248,7 @@
 
   /* CTA filled look */
   .nav-btn.cta{
-    background:linear-gradient(135deg, rgba(79,70,229,.9), rgba(124,58,237,.92));
+    background: linear-gradient(135deg, #d9def8, #0b35ff);
     box-shadow:
       0 0 0 1px rgba(255,255,255,.10) inset,
       0 8px 26px rgba(79,70,229,.45);

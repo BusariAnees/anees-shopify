@@ -1,7 +1,7 @@
 body {
   background: #000000;
   color: black;
-  font-family: "Inter", Arial, sans-serif;
+  font-family: "Satoshi", "Inter", Arial, sans-serif;
   margin: 0;
   min-height: 100vh;
   padding: 70px 0 0 40px;
@@ -26,7 +26,15 @@ body {
 }
 
 
-
+.ascii-portrait {
+  font-family: "SF Mono", "Menlo", "Consolas", monospace;
+  font-size: 4px;
+  line-height: 1.0;
+  white-space: pre;
+  margin: 0;
+  color: rgb(21, 21, 20);
+  user-select: none;
+}
 
 
 
@@ -304,19 +312,87 @@ h1 {
 
 
 
+/* Top-left site URL (shovel.studio style) */
+.site-url {
+  position: fixed;
+  top: 22px;
+  left: 40px;
+  z-index: 1100;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #000;
+  font-size: 1rem;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.site-url img {
+  width: 18px;
+  height: 18px;
+  border-radius: 3px;
+  object-fit: cover;
+}
+
 .container {
   /* max-width: 700px; */
-  padding: 0 24px;
+
+}
+
+.profile-pic {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+  /* shovel.studio-style dot grid */
+background-image: radial-gradient(circle, #282424 1px, transparent 1.4px);
+  background-size: 160px 120px;
+  background-position: 20px 30px;
+      padding: 15rem 24px 6rem;
+    align-items: end;
+    height: 25rem;
 }
 
 .profile-pic img {
   height: 8rem;
   border-radius: 10px;
   object-fit: cover;
-  
+  margin-top: 14rem;
+}
+
+/* Digital servicing panel*/
+.servicing {
+  width: 440px;
+  max-width: 100%;
+}
+.servicing-label {
+  color: #9a9a9a;
+  font-weight: 400;
+  margin: 0 0 0.9rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid #dcdcdc;
+      font-size: 0.7rem;
+    margin-bottom: 0.4rem;
+}
+.servicing-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.servicing-list li {
+  color: #111;
+     font-size: 0.75rem;
+  line-height: 2.1;
+}
+
+@media (max-width: 768px) {
+  .servicing {
+    margin-top: 2rem;
+    width: 100%;
+  }
 }
 h1 {
-  font-family: "Inter", "Inter Placeholder", sans-serif;
+  font-family: "Satoshi", "Inter", "Inter Placeholder", sans-serif;
   font-size: 28px;
   font-weight: 500;
   font-style: normal;
@@ -340,7 +416,6 @@ h1 {
   display: flex;
   align-items: center;
   gap: 1em;
-  margin-bottom: 2em;
 }
 .btn {
   height: 32px;
@@ -593,6 +668,127 @@ display: -webkit-box;
   opacity: 0;
   transition: opacity 0.2s ease;
   white-space: nowrap;
+  z-index: 2;
+}
+
+
+/* ---- Case studies redesign ---- */
+.case-study-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem 4rem;
+}
+
+.case-studies-head {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+     margin: 3.3rem 0 1rem;
+    padding-block: 1rem;
+}
+
+.case-studies-head h2 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: #000;
+  margin: 0;
+}
+
+.case-study {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+}
+
+.case-header {
+  margin-bottom: 1rem;
+}
+
+.case-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1d3fe0;
+  margin: 0;
+}
+
+.case-tagline {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.case-image {
+  position: relative;
+  background: #ececec;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.case-image img {
+  width: 100%;
+  height: 22rem;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.case-study:hover .case-image img {
+  transform: scale(1.02);
+}
+
+.case-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.case-study:hover .case-image::before {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.case-footer {
+  margin-top: 1.25rem;
+}
+
+.case-author {
+  display: flex;
+  gap: 0.75rem;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+
+.author-name {
+  color: #000;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.author-role {
+  color: #888;
+  font-size: 13px;
+}
+
+.case-quote {
+  color: #555;
+  font-size: 13px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .case-study-section { grid-template-columns: 1fr; }
+  .case-studies-head { flex-direction: column; gap: 0; margin-bottom: 1.75rem; }
+  .case-image img { height: 16rem; }
 }
 
 .text-wrapper {
@@ -694,7 +890,6 @@ summary::-webkit-details-marker {
 
 .custom-video-container {
   position: relative;
-  max-width: 800px;
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
@@ -757,8 +952,8 @@ video {
   grid-template-columns: 1fr 2fr;
   gap: 60px;
 
-  background-color: #fcfcfc;
-  font-family: 'Inter', sans-serif;
+  background-color: #4c4646;
+  font-family: 'Satoshi', 'Inter', sans-serif;
 }
 
 /* Video Styling */
@@ -797,20 +992,22 @@ video {
 }
 
 .details-grid {
+  font-size: 0.8rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
 }
 
 .detail-col h3 {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   margin-bottom: 15px;
+      text-decoration: underline;
+      color: yellow;;
 }
 
 .detail-col p {
-  font-size: 1rem;
   line-height: 1.5;
-  color: #666;
+    color: yellow;
   margin-bottom: 30px;
 }
 
@@ -821,6 +1018,7 @@ video {
 }
 
 .icon-circle {
+      color: yellow;
   width: 45px;
   height: 45px;
   border: 1px solid #e0e0e0;
@@ -829,7 +1027,6 @@ video {
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  color: #333;
   transition: background 0.3s;
 }
 
@@ -857,9 +1054,12 @@ video {
 
 
 .faq {
+
+    padding-block: 70px;
   max-width: 720px;
-  margin: 3rem auto;
-  font-family: Inter, system-ui, sans-serif;
+  margin: 3rem auto 0;
+  font-family: "Satoshi", Inter, system-ui, sans-serif;
+    margin-top: 0;
 }
 
 .faq-item {
@@ -878,7 +1078,7 @@ video {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #000;
+  color: white;
 }
 
 .faq-question:hover {
@@ -888,7 +1088,7 @@ video {
 .icon {
   font-size: 1.25rem;
   transition: transform 0.3s ease;
-  color: #000;
+  color: white;
 }
 
 .faq-answer {
@@ -900,7 +1100,7 @@ video {
 
 .faq-answer p {
   padding-bottom: 1.25rem;
-  color: #555;
+  color: white;
   line-height: 1.6;
   margin: 0;
 }
@@ -911,13 +1111,14 @@ video {
 }
 
 .faq-item.active .icon {
+
   transform: rotate(45deg);
 }
 
 
 /* Wrapper */
 .hero-wrap {
-  background: #2b2b2b;
+  background: #4c4646;
   padding: 2rem;
 }
 
@@ -1118,6 +1319,21 @@ video {
 
 /* 📱 Mobile adjustments */
 @media (max-width: 768px) {
+.profile-pic {
+  margin-bottom: 10rem;
+
+}
+
+.site-url{
+      top: 1px;
+    left: 100px;
+}
+
+.faq {
+      margin-top: 0;
+    padding: 0 24px;
+}
+
   .hero-header {
     gap: 0.5rem;
     text-align: center;
